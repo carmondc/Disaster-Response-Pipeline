@@ -28,7 +28,7 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///data/DisasterResponse.db')
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql_table('messages_table', engine)
 print('successful load data')
 
@@ -49,8 +49,7 @@ def index():
     
     category_names = df.iloc[:, 4:].columns
     category_counts = (df.iloc[:, 4:] != 0).sum().values
-    top_category = category_counts.sort_values(ascending = False)[1]
-    top_category_name = list(top_category.index)
+    
                        
     
                      
@@ -93,31 +92,10 @@ def index():
                     'title': 'Genre'
                 }
             }
-        }, 
-       
-        { 
-            'data': [
-                Bar(
-                    x = top_category_name,
-                    y = top_category
-                )
-            ],
-            'layout': {
-                'title': 'Top 10 Categories',
-                'yaxis': {
-                    'title' :'Count'
-                },
-                'xaxis': {
-                    'title' : 'Categories'
-                }
-            }
         }
-                          
-        
     ]
-   
-    
-    
+          
+            
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
