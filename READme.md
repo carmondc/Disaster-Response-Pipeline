@@ -60,7 +60,7 @@ This project divided in the following section:
 
    *python app/run.py*
    
-4. Go to https://view6914b2f4-3001.udacity-student-workspaces.com/ 
+4. Go to https://view6914b2f4-3001.udacity-student-workspaces.com/ or https://0.0.0.0:3001/ 
 
 ### 4. Main Page of the Web app
 ![image](https://user-images.githubusercontent.com/82325933/129431345-942be171-2ad2-4476-adda-dec23d51ebf7.png)
